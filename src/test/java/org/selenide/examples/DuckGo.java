@@ -20,11 +20,5 @@ public class DuckGo {
         $("div#r1-0 div.result__snippet").shouldHave(
                 text("Maven"),
                 text("understanding"));
-
-
-
-
-
-        //$$(By.xpath("//*[@id=\"rso\"]/div/div/div[1]/div/div/h3/a")).shouldHave(texts("Maven – Maven in 5 Minutes"));
     }
 }

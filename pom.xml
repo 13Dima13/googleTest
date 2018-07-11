@@ -7,6 +7,7 @@
   <packaging>jar</packaging>
   <name>google_tests</name>
   <url>http://maven.apache.org</url>
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <webdrivermanager.version>LATEST</webdrivermanager.version>
@@ -22,6 +23,7 @@
     <junit.platform.surefire.provider>LATEST</junit.platform.surefire.provider>
 
     <maven.surefire.plugin>2.22.0</maven.surefire.plugin>
+
   </properties>
   <build>
     <plugins>
@@ -30,6 +32,11 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>${maven.surefire.plugin}</version>
         <configuration>
+          <parallel>all</parallel>
+          <perCoreThreadCount>true</perCoreThreadCount>
+          <threadCount>6</threadCount>
+          <perCoreThreadCount>false</perCoreThreadCount>
+          <redirectTestOutputToFile>true</redirectTestOutputToFile>
           <properties>
             <includeTags>${tag}</includeTags>
           </properties>
@@ -38,23 +45,32 @@
     </plugins>
   </build>
 
-
   <dependencies>
+    <dependency>
+      <groupId>com.sun.mail</groupId>
+      <artifactId>javax.mail</artifactId>
+      <version>${javax.mail-api.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.mail</groupId>
+      <artifactId>javax.mail-api</artifactId>
+      <version>${javax.mail-api.version}</version>
+    </dependency>
     <dependency>
       <groupId>io.github.bonigarcia</groupId>
       <artifactId>webdrivermanager</artifactId>
       <version>${webdrivermanager.version}</version>
     </dependency>
-    <!--<dependency>-->
-      <!--<groupId>org.slf4j</groupId>-->
-      <!--<artifactId>slf4j-api</artifactId>-->
-      <!--<version>${slf4j-api.version}</version>-->
-    <!--</dependency>-->
-    <!--<dependency>-->
-      <!--<groupId>org.slf4j</groupId>-->
-      <!--<artifactId>slf4j-simple</artifactId>-->
-      <!--<version>${slf4j-simple.version}</version>-->
-    <!--</dependency>-->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>${slf4j-api.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>${slf4j-simple.version}</version>
+    </dependency>
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-java</artifactId>
@@ -68,9 +84,25 @@
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
-      <version>5.3.0-M1</version>
+      <version>${junit.jupiter.version}</version>
       <scope>test</scope>
     </dependency>
-
+    <dependency>
+      <groupId>org.junit.vintage</groupId>
+      <artifactId>junit-vintage-engine</artifactId>
+      <version>${junit.vintage.engine}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.platform</groupId>
+      <artifactId>junit-platform-launcher</artifactId>
+      <version>${junit.platform.launcher}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.platform</groupId>
+      <artifactId>junit-platform-surefire-provider</artifactId>
+      <version>${junit.platform.surefire.provider}</version>
+    </dependency>
   </dependencies>
 </project>

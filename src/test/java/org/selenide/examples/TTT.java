@@ -1,8 +1,10 @@
-package com.Creatoriq.WebUiTestingFramework.tests;
+package org.selenide.examples;
 
 import com.codeborne.selenide.Condition;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.selenide.examples.App.BrowserConfiguration;
 
 import static com.codeborne.selenide.Selenide.*;
 import static java.lang.System.out;
@@ -10,6 +12,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class TTT {
+
+    @BeforeAll
+    public static void setup(){
+        BrowserConfiguration.setUpLocale();
+    }
+
 
 
     @Test
