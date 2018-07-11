@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+--- ожидание
+    $("div").should(exist);
+
+    try {
+    wait for element
+    return true
+    }
+    catch(NotFoudnException e){
+    return false;
+    }
+
+
+    if ($("#info").isDisplayed()) {
+    $("#info-close").click();
+    }
+
+
+    public boolean isVisible() {
+    try {
+    $("div").should(exist);
+    return true
+    } catch (error) {
+    return false
+    }
+    }
+--КОл-во элменетов в списке
+    List<WebElement> list = wd.findElements(By.cssSelector("div.SAInfo div i.sex"));
+    assertThat(12, equalTo(list.size()));
+
+
+$ - первый элемент
+    $$ - колекция
+
+    ПОдождать пока элемент не пропадет на странице, если он уже есть
+    $("XXXXX").shouldNotBe(visible);
+
+</head>
+<body>
+
+</body>
+</html>

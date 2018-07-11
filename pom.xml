@@ -1,0 +1,76 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>Selenide</groupId>
+  <artifactId>google_tests</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <name>google_tests</name>
+  <url>http://maven.apache.org</url>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <webdrivermanager.version>LATEST</webdrivermanager.version>
+    <slf4j-api.version>LATEST</slf4j-api.version>
+    <slf4j-simple.version>LATEST</slf4j-simple.version>
+    <selenium.version>LATEST</selenium.version>
+    <selenide.version>LATEST</selenide.version>
+    <javax.mail-api.version>LATEST</javax.mail-api.version>
+    <junit.jupiter.version>LATEST</junit.jupiter.version>
+
+    <junit.vintage.engine>LATEST</junit.vintage.engine>
+    <junit.platform.launcher>LATEST</junit.platform.launcher>
+    <junit.platform.surefire.provider>LATEST</junit.platform.surefire.provider>
+
+    <maven.surefire.plugin>2.22.0</maven.surefire.plugin>
+  </properties>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${maven.surefire.plugin}</version>
+        <configuration>
+          <properties>
+            <includeTags>${tag}</includeTags>
+          </properties>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+
+  <dependencies>
+    <dependency>
+      <groupId>io.github.bonigarcia</groupId>
+      <artifactId>webdrivermanager</artifactId>
+      <version>${webdrivermanager.version}</version>
+    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>org.slf4j</groupId>-->
+      <!--<artifactId>slf4j-api</artifactId>-->
+      <!--<version>${slf4j-api.version}</version>-->
+    <!--</dependency>-->
+    <!--<dependency>-->
+      <!--<groupId>org.slf4j</groupId>-->
+      <!--<artifactId>slf4j-simple</artifactId>-->
+      <!--<version>${slf4j-simple.version}</version>-->
+    <!--</dependency>-->
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>${selenium.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.codeborne</groupId>
+      <artifactId>selenide</artifactId>
+      <version>${selenide.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>5.3.0-M1</version>
+      <scope>test</scope>
+    </dependency>
+
+  </dependencies>
+</project>
